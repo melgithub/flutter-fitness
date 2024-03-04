@@ -17,7 +17,7 @@ class HomePage extends StatelessWidget {
             decoration: InputDecoration(
               prefixIcon: Icon(CupertinoIcons.search),
               border: OutlineInputBorder(),
-              labelText: 'Enter your username',
+              labelText: 'Find something',
             ),
           ),
         ],
@@ -27,23 +27,22 @@ class HomePage extends StatelessWidget {
 
   AppBar appBar() {
     return AppBar(
-          title: const Text('Fitness App',
-            style: TextStyle(
+        title: const Text(
+          'Fitness App',
+          style: TextStyle(
               color: Color.fromARGB(255, 10, 44, 55),
               fontSize: 28,
-              fontWeight: FontWeight.bold
-            ),
+              fontWeight: FontWeight.bold),
+        ),
+        backgroundColor: Colors.white,
+        leading: SizedBox(
+          width: 30,
+          height: 30,
+          child: CupertinoButton(
+            padding: EdgeInsets.zero,
+            onPressed: () {},
+            child: const Icon(CupertinoIcons.person),
           ),
-          backgroundColor: Colors.white,
-          leading: SizedBox(
-            width: 30,
-            height: 30,
-            child: CupertinoButton(
-              padding: EdgeInsets.zero,
-              onPressed: () {},
-                  child: const Icon(CupertinoIcons.person),
-            ),
-         )
-    );
+        ));
   }
 }
