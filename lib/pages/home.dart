@@ -14,15 +14,28 @@ class HomePage extends StatelessWidget {
           // ),
           Container(
             margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
-            child: const TextField(
+            decoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.18),
+                  spreadRadius: 5,
+                  blurRadius: 7,
+                  offset: const Offset(0, 3), // changes position of shadow
+                )
+              ],
+            ),
+            child: TextField(
               decoration: InputDecoration(
-                  prefixIcon: Icon(CupertinoIcons.bubble_right),
-                  filled: true,
-                  fillColor: Colors.white,
-                  border: OutlineInputBorder(),
-                  labelText: 'Have questions?',
-                  // add a hint to the input field
-                  hintText: 'Ask us anything'),
+                prefixIcon: const Icon(CupertinoIcons.bubble_right),
+                filled: true,
+                fillColor: Colors.white,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide.none, // Remove the border side
+                ),
+                // labelText: 'Curious?',
+                hintText: 'Ask me anything',
+              ),
             ),
           )
         ]));
@@ -52,7 +65,7 @@ class HomePage extends StatelessWidget {
             child: CupertinoButton(
               padding: EdgeInsets.zero,
               onPressed: () {},
-              child: const Icon(CupertinoIcons.speaker_1),
+              child: const Icon(CupertinoIcons.mic),
             ),
           )
         ]);
