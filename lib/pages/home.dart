@@ -8,37 +8,42 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: appBar(),
-        backgroundColor: Colors.white,
-        body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          _searchField(),
-          const SizedBox(
-            height: 40,
-          ),
-          Column(
+        body: SingleChildScrollView(
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Padding(
-                  padding: EdgeInsets.only(left: 20),
-                  child: Text('Weekly Goals',
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 22,
-                          fontWeight: FontWeight.w600))),
+              _searchField(),
               const SizedBox(
-                height: 15,
+                height: 40,
               ),
-              Container(
-                height: 150,
-                color: Colors.purple[200],
-                child: ListView.builder(
-                  itemBuilder: (context, index) {
-                    return Container();
-                  },
-                ),
-              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Padding(
+                      padding: EdgeInsets.only(left: 20),
+                      child: Text('Weekly Goals',
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 22,
+                              fontWeight: FontWeight.w600))),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  Container(
+                    height: 150,
+                    color: Colors.purple[200],
+                    child: ListView.builder(
+                      itemCount: 10,
+                      itemBuilder: (context, index) {
+                        return Text('Item $index');
+                      },
+                    ),
+                  ),
+                ],
+              )
             ],
-          )
-        ]));
+          ),
+        ));
   }
 
   Container _searchField() {
@@ -58,14 +63,11 @@ class HomePage extends StatelessWidget {
           decoration: InputDecoration(
             prefixIcon: const Icon(CupertinoIcons.bubble_right),
             filled: true,
-            fillColor: Colors.white,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
               borderSide: BorderSide.none, // Remove the border side
             ),
             hintText: 'Ask me something!',
-            // labelText: 'Curious?',
-            // suffixIcon: const Icon(CupertinoIcons.barcode),
             suffixIcon: const SizedBox(
               width:
                   100, // we had to do this so the text appears and isn't overlapped by the icon
@@ -99,7 +101,6 @@ class HomePage extends StatelessWidget {
               fontSize: 28,
               fontWeight: FontWeight.w900),
         ),
-        backgroundColor: Colors.white,
         leading: Container(
           margin: const EdgeInsets.all(10),
           child: CupertinoButton(
